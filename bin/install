@@ -22,7 +22,7 @@ install () {
     echo "Extracting rancher-compose archive"
     echo "${download_path} -C ${bin_install_path}"
     tar zxfv "${download_path}" -C "${bin_install_path}" --strip 1
-    mv "${bin_install_path}/rancher-compose-v${version}" "${bin_install_path}/rancher-compose"
+    mv "${bin_install_path}/rancher-compose-v${version}/rancher-compose" "${bin_install_path}/rancher-compose"
   else
     echo "Error: rancher-compose version ${version} not found" >&2
     exit 1
