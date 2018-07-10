@@ -27,9 +27,20 @@ install () {
   fi
 }
 
+get_arch () {
+  uname | tr '[:upper:]' '[:lower:]'
+}
+
+get_filename () {
+  local -r version="$1"
+  local -r platform="$(get_arch)"
+  echo "rancher-compose-${platform}-amd64-v${version}.tar.gz"
+}
+
 get_download_url () {
   local -r version="$1"
-  echo "https://github.com/rancher/rancher-compose/releases/download/v${version}/rancher-compose-linux-amd64-v${version}.tar.gz"
+  local -r filename="$(get_filename "${version}")"
+  echo "https://github.com/rancher/rancher-compose/releases/download/v${version}/${filename}"
 }
 
 install "${ASDF_INSTALL_TYPE}" "${ASDF_INSTALL_VERSION}" "${ASDF_INSTALL_PATH}"
