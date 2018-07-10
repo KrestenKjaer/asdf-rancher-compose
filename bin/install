@@ -12,7 +12,8 @@ install () {
   local -r download_path="${TMP_DOWNLOAD_DIR}/$(get_filename "${version}")"
 
   echo "Downloading rancher-compose version ${version} from ${download_url}"
-  if curl -fs "${download_url}" -o "${download_path}"; then
+  echo "curl -Lfs ${download_url} -o ${download_path}"
+  if curl -vL "${download_url}" -o "${download_path}"; then
     echo "Cleaning rancher-compose previous binaries"
     rm -rf "${bin_install_path}/rancher-compose"
 
