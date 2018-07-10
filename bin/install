@@ -20,9 +20,8 @@ install () {
     mkdir -p "${bin_install_path}"
 
     echo "Extracting rancher-compose archive"
-    set -v
+    echo "${download_path} -C ${bin_install_path}"
     tar zxfv "${download_path}" -C "${bin_install_path}"
-    set +v
   else
     echo "Error: rancher-compose version ${version} not found" >&2
     exit 1
