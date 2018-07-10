@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+list_all () {
+  echo "0.12.5"
+}
+
+list_all
